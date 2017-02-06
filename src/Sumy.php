@@ -1,7 +1,7 @@
 <?php
-namespace Sumy;
+namespace HaganJones\Sumy;
 
-use Sumy\Exceptions\NaNException;
+use HaganJones\Sumy\Exceptions\NaNException;
 
 class Sumy {
     

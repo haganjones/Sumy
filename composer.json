@@ -12,7 +12,7 @@
         "phpunit/phpunit": "5.7.5"
     },
     "autoload": {
-        "psr-4": { "Sumy\\": "src" },
+        "psr-4": { "HaganJones\\Sumy\\": "src" },
         "exclude-from-classmap": [
             "/tests/"
         ]
@@ -24,6 +24,5 @@
             "homepage": "https://haganjones.com",
             "role": "Developer"
         }
-    ],
-    "minimum-stability": "stable"
+    ]
 }
