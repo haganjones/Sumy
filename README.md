@@ -15,9 +15,11 @@ $sumy->get(); // 50
 ```
  
 ## Installation
-You can install this package by using Composer:
+You can install this
+[package](https://packagist.org/packages/haganjones/sumy) by
+using [Composer](https://getcomposer.org/):
 ```php
-composer require sumy/sumy
+composer require haganjones/sumy
 ```
  
 ## Getting Started
