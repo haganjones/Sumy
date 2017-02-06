@@ -1,4 +1,4 @@
 <?php
-namespace Sumy\Exceptions;
+namespace HaganJones\Sumy\Exceptions;
 
 class NaNException extends \Exception {}

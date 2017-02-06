@@ -1,9 +1,8 @@
 <?php
 namespace Tests\Unit;
 
-use Sumy\Exceptions\InitialisationException;
-use Sumy\Exceptions\NaNException;
-use Sumy\Sumy;
+use HaganJones\Sumy\Exceptions\NaNException;
+use HaganJones\Sumy\Sumy;
 use Tests\TestCase;
 
 class InitialisationTest extends TestCase

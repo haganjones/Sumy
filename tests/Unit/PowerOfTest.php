@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Unit;
 
-use Sumy\Sumy;
+use HaganJones\Sumy\Sumy;
 use Tests\TestCase;
 
 class PowerOfTest extends TestCase
