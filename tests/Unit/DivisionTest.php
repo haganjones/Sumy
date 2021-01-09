@@ -1,26 +1,18 @@
 <?php
-namespace Tests\Unit;
 
-use HaganJones\Sumy\Sumy;
-use Tests\TestCase;
+it('can divide a number', function () {
+    $sumy = newSumy(100)
+        ->divide(4);
 
-class DivisionTest extends TestCase
-{
-    /** @test */
-    public function can_divide_a_number()
-    {
-        $sumy = new Sumy(100);
+    expect($sumy->get())
+        ->toBe(25.0);
+});
 
-        $sumy->divide(4);
-        $this->assertEquals(25, $sumy->get());
-    }
+it('can chain divide a number', function () {
+    $sumy = newSumy(100)
+        ->divide(10)
+        ->divide(2);
 
-    /** @test */
-    public function can_chain_divide_a_number()
-    {
-        $sumy = new Sumy(100);
-
-        $sumy->divide(10)->divide(2);
-        $this->assertEquals(5, $sumy->get());
-    }
-}
+    expect($sumy->get())
+        ->toBe(5.0);
+});

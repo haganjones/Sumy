@@ -1,26 +1,18 @@
 <?php
-namespace Tests\Unit;
 
-use HaganJones\Sumy\Sumy;
-use Tests\TestCase;
+it('can square root a number', function () {
+    $sumy = newSumy(100)
+        ->sqrt();
+    expect($sumy->get())
+        ->toBe(10.0);
+});
 
-class SquareRootTest extends TestCase
-{
-    /** @test */
-    public function can_square_root_a_number()
-    {
-        $sumy = new Sumy(100);
 
-        $sumy->sqrt();
-        $this->assertEquals(10, $sumy->get());
-    }
+it('can chain square root a number', function () {
+    $sumy = newSumy(441)
+        ->sqrt()
+        ->sqrt();
 
-    /** @test */
-    public function can_chain_square_root_a_number()
-    {
-        $sumy = new Sumy(441);
-
-        $sumy->sqrt()->sqrt();
-        $this->assertEquals(4.58257569495584, $sumy->get());
-    }
-}
+    expect($sumy->get())
+        ->toBe(4.58257569495584);
+});

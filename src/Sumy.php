@@ -1,73 +1,84 @@
 <?php
-namespace HaganJones\Sumy;
 
-use HaganJones\Sumy\Exceptions\NaNException;
+namespace SlashEquip\Sumy;
 
-class Sumy {
-    
-    private $original;
-    private $current;
+use SlashEquip\Sumy\Exceptions\NaNException;
+
+class Sumy
+{
+    /** @var float */
+    protected $original;
+
+    /** @var float */
+    protected $current;
     
     public function __construct($number = 0)
     {
         $this->load($number);
     }
 
-    public function set($number)
+    public function set($number): Sumy
     {
         $this->load($number);
+
         return $this;
     }
 
-    public function get()
+    public function get(): float
     {
         return $this->current;
     }
 
-    public function reset()
+    public function reset(): Sumy
     {
         $this->load($this->original);
+
         return $this;
     }
 
-    public function add($number)
+    public function add($number): Sumy
     {
         $this->current += $this->parse($number);
+
         return $this;
     }
   
-    public function subtract($number)
+    public function subtract($number): Sumy
     {
         $this->current -= $this->parse($number);
+
         return $this;
     }
 
-    public function multiply($number)
+    public function multiply($number): Sumy
     {
         $this->current *= $this->parse($number);
+
         return $this;
     }
 
-    public function divide($number)
+    public function divide($number): Sumy
     {
         $this->current /= $this->parse($number);
+
         return $this;
     }
 
-    public function sqrt()
+    public function sqrt(): Sumy
     {
         $this->current = sqrt($this->current);
+
         return $this;
     }
 
-    public function pow($number)
+    public function pow($number): Sumy
     {
         $this->current = $this->current ** $this->parse($number);
+
         return $this;
     }
 
-
-    private function load($number)
+    protected function load($number): void
     {
         if( $number instanceof Sumy ) {
             $number = $number->get();
@@ -81,7 +92,7 @@ class Sumy {
         $this->current = $this->parse($number);
     }
 
-    private function parse($number)
+    protected function parse($number): float
     {
         if( !$this->isNumber($number) ) {
             $this->throwNaNException($number);
@@ -90,12 +101,15 @@ class Sumy {
         return floatval($number);
     }
 
-    private function isNumber($number)
+    protected function isNumber($number): bool
     {
         return is_numeric($number);
     }
 
-    private function throwNaNException($var)
+    /**
+     * @throws NaNException
+     */
+    protected function throwNaNException($var): void
     {
         $type = gettype($var);
 

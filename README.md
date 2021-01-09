@@ -16,10 +16,10 @@ $sumy->get(); // 50
  
 ## Installation
 You can install this
-[package](https://packagist.org/packages/haganjones/sumy) by
+[package](https://packagist.org/packages/slashequip/sumy) by
 using [Composer](https://getcomposer.org/):
 ```php
-composer require haganjones/sumy
+composer require slashequip/sumy
 ```
  
 ## Getting Started
@@ -63,6 +63,4 @@ $sumy->get(); //29791
 ```
 
 ## Licence
-Copyright &copy; 2017 Hagan Jones.
-
 Distributed under the MIT licence. See LICENCE.txt for further information.

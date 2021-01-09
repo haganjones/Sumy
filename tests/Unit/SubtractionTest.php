@@ -1,26 +1,18 @@
 <?php
-namespace Tests\Unit;
 
-use HaganJones\Sumy\Sumy;
-use Tests\TestCase;
+it('can subtract a number', function () {
+    $sumy = newSumy(456.9105)
+        ->subtract(346.9105);
 
-class SubtractionTest extends TestCase
-{
-    /** @test */
-    public function can_subtract_a_number()
-    {
-        $sumy = new Sumy(456.9105);
+    expect($sumy->get())
+        ->toBe(110.0);
+});
 
-        $sumy->subtract(346.9105);
-        $this->assertEquals(110, $sumy->get());
-    }
+it('can chain subtract a number', function () {
+    $sumy = newSumy(456.9105)
+        ->subtract(346.9105)
+        ->subtract(3.7);
 
-    /** @test */
-    public function can_chain_subtract_a_number()
-    {
-        $sumy = new Sumy(456.9105);
-
-        $sumy->subtract(346.9105)->subtract(3.7);
-        $this->assertEquals(106.3, $sumy->get());
-    }
-}
+    expect($sumy->get())
+        ->toBe(106.3);
+});

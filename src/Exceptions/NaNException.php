@@ -1,4 +1,9 @@
 <?php
-namespace HaganJones\Sumy\Exceptions;
+namespace SlashEquip\Sumy\Exceptions;
 
-class NaNException extends \Exception {}
+use RuntimeException;
+
+class NaNException extends RuntimeException
+{
+    //
+}
