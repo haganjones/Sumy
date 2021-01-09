@@ -7,10 +7,10 @@ use SlashEquip\Sumy\Exceptions\NaNException;
 class Sumy
 {
     /** @var float */
-    private $original;
+    protected $original;
 
     /** @var float */
-    private $current;
+    protected $current;
     
     public function __construct($number = 0)
     {
@@ -78,7 +78,7 @@ class Sumy
         return $this;
     }
 
-    private function load($number): void
+    protected function load($number): void
     {
         if( $number instanceof Sumy ) {
             $number = $number->get();
@@ -92,7 +92,7 @@ class Sumy
         $this->current = $this->parse($number);
     }
 
-    private function parse($number): float
+    protected function parse($number): float
     {
         if( !$this->isNumber($number) ) {
             $this->throwNaNException($number);
@@ -101,7 +101,7 @@ class Sumy
         return floatval($number);
     }
 
-    private function isNumber($number): bool
+    protected function isNumber($number): bool
     {
         return is_numeric($number);
     }
@@ -109,7 +109,7 @@ class Sumy
     /**
      * @throws NaNException
      */
-    private function throwNaNException($var): void
+    protected function throwNaNException($var): void
     {
         $type = gettype($var);
 
