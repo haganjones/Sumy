@@ -1,9 +1,9 @@
 <?php
-namespace Tests\Unit;
+namespace SlashEquip\Sumy\Tests\Unit;
 
-use HaganJones\Sumy\Exceptions\NaNException;
-use HaganJones\Sumy\Sumy;
-use Tests\TestCase;
+use SlashEquip\Sumy\Exceptions\NaNException;
+use SlashEquip\Sumy\Sumy;
+use SlashEquip\Sumy\Tests\TestCase;
 
 class InitialisationTest extends TestCase
 {
