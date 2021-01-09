@@ -1,63 +1,41 @@
 <?php
-namespace SlashEquip\Sumy\Tests\Unit;
 
 use SlashEquip\Sumy\Exceptions\NaNException;
 use SlashEquip\Sumy\Sumy;
-use SlashEquip\Sumy\Tests\TestCase;
 
-class InitialisationTest extends TestCase
-{
-    /** @test */
-    public function is_initialised_with_current_number_at_zero()
-    {
-        $sumy = new Sumy();
+it('is initialised with current number at zero', function () {
+    $sumy = new Sumy();
 
-        $this->assertTrue($sumy instanceof Sumy);
-        $this->assertEquals(0, $sumy->get());
-    }
+    expect($sumy)->toBeInstanceOf(Sumy::class);
+    expect($sumy->get())->toBe(0.0);
+});
 
-    /** @test */
-    public function is_initialised_with_passed_number()
-    {
-        $sumy = new Sumy(300);
+it('is initialised with passed number', function () {
+    $sumy = new Sumy(300);
 
-        $this->assertEquals(300, $sumy->get());
-    }
+    expect($sumy->get())->toBe(300.0);
+});
 
-    /** @test */
-    public function is_initialised_with_instance_of_sumy()
-    {
-        $sumy = new Sumy(new Sumy(300));
+it('is initialised with instance of sumy', function () {
+    $sumy = new Sumy(new Sumy(300));
 
-        $this->assertEquals(300, $sumy->get());
-    }
+    expect($sumy->get())->toBe(300.0);
+});
 
-    /** @test */
-    public function can_be_initialised_with_null()
-    {
-        $sumy = new Sumy(null);
+it('can be initialised with null', function () {
+    $sumy = new Sumy(null);
 
-        $this->assertEquals(0, $sumy->get());
-    }
+    expect($sumy->get())->toBe(0.0);
+});
 
-    /** @test */
-    public function cannot_be_initialised_with_a_string()
-    {
-        $this->expectException(NaNException::class);
-        new Sumy('hello');
-    }
+it('cannot be initialised with a string', function () {
+    new Sumy('hello');
+})->expectException(NaNException::class);
 
-    /** @test */
-    public function cannot_be_initialised_with_a_object()
-    {
-        $this->expectException(NaNException::class);
-        new Sumy((new \stdClass()));
-    }
+it('cannot be initialised with a object', function () {
+    new Sumy((new \stdClass()));
+})->expectException(NaNException::class);
 
-    /** @test */
-    public function can_be_initialised_with_a_null()
-    {
-        $this->expectException(NaNException::class);
-        new Sumy(array());
-    }
-}
+it('can be initialised with a null', function () {
+    new Sumy(array());
+})->expectException(NaNException::class);

@@ -1,26 +1,18 @@
 <?php
-namespace SlashEquip\Sumy\Tests\Unit;
 
-use SlashEquip\Sumy\Sumy;
-use SlashEquip\Sumy\Tests\TestCase;
+it('can power of a number', function () {
+    $sumy = newSumy(10)
+        ->pow(2);
+    expect($sumy->get())
+        ->toBe(100.0);
+});
 
-class PowerOfTest extends TestCase
-{
-    /** @test */
-    public function can_power_of_a_number()
-    {
-        $sumy = new Sumy(10);
 
-        $sumy->pow(2);
-        $this->assertEquals(100, $sumy->get());
-    }
+it('can chain power of a number', function () {
+    $sumy = newSumy(4)
+        ->pow(4)
+        ->pow(2);
 
-    /** @test */
-    public function can_chain_power_of_a_number()
-    {
-        $sumy = new Sumy(4);
-
-        $sumy->pow(4)->pow(2);
-        $this->assertEquals(65536, $sumy->get());
-    }
-}
+    expect($sumy->get())
+        ->toBe(65536.0);
+});

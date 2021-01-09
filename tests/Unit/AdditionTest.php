@@ -1,29 +1,18 @@
 <?php
-namespace SlashEquip\Sumy\Tests\Unit;
 
-use SlashEquip\Sumy\Sumy;
-use SlashEquip\Sumy\Tests\TestCase;
+it('can add a number', function () {
+    $sumy = newSumy(110)
+        ->add(346.9105);
 
-class AdditionTest extends TestCase
-{
-    /** @test */
-    public function can_add_a_number()
-    {
-        $sumy = new Sumy(110);
+    expect($sumy->get())
+        ->toBe(456.9105);
+});
 
-        $sumy->add(346.9105);
-        $this->assertEquals(456.9105, $sumy->get());
+it('can chain add a number', function () {
+    $sumy = newSumy(110)
+        ->add(346.20)
+        ->add(100.40);
 
-        $sumy->add(0.9105);
-        $this->assertEquals(457.821, $sumy->get());
-    }
-
-    /** @test */
-    public function can_chain_add_a_number()
-    {
-        $sumy = new Sumy(110);
-
-        $sumy->add(346.20)->add(100.40);
-        $this->assertEquals(556.6, $sumy->get());
-    }
-}
+    expect($sumy->get())
+        ->toBe(556.6);
+});
