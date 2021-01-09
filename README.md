@@ -63,4 +63,6 @@ $sumy->get(); //29791
 ```
 
 ## Licence
+Copyright 2021 SlashEquip OÜ.
+
 Distributed under the MIT licence. See LICENCE.txt for further information.
